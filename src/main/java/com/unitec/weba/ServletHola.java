@@ -32,6 +32,7 @@ public class ServletHola extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        out.println("Hola desde el servlet");
+         String nombre=request.getParameter("nombre");
+        out.println("Hola como estas  "+nombre);
     }
 }
