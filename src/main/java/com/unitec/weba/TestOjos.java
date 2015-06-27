@@ -25,19 +25,19 @@ public class TestOjos {
            //nos apuramos a hacer una transaccion
            
             Usuario u =new Usuario();
-                u.setEmail("ana@hotmail.com");
-                u.setIdUsuario(3);
-                u.setNombre("ana");
-                u.setLogin("ana");
+                u.setEmail("jorge@jorge");
+                u.setIdUsuario(1);
+                u.setNombre("jorge");
+                u.setLogin("jorge luis");
                 u.setPassword("123");
-               // sesion.save(u);
-                //Liberar la transaccion y cerrar la sesion
-                //tranza.commit();
-                //sesion.close();
+                sesion.save(u);
+               //Liberar la transaccion y cerrar la sesion
+               tranza.commit();
+               sesion.close();
                 
                 DAOUsuario daou=new DAOUsuario();
                 daou.guardar(u);
-                 
+                System.out.println("Se actualizo correctamente"); 
               
               //__________________________________________________________________
     //UPDATE

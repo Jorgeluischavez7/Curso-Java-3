@@ -26,6 +26,12 @@ public class DAOUsuario {
         session.close();
     }            
             
+    public void abrirSession(){
+    factory=HibernateUtilidades.getSessionFactory();
+    session=factory.openSession();
+    tranza= session.beginTransaction();
+    }
+    
     public DAOUsuario(){
         
     }
@@ -43,7 +49,9 @@ public class DAOUsuario {
     }
     //Creamos el buscar todos 
     public List<Usuario> buscarTodos()throws Exception{
-        return null;
+        abrirSession();
+        List<Usuario> usuarios= session.createCriteria(Usuario.class).list();
+        return usuarios;
     }
     //Creamos el buscarPorId
     public Usuario buscarPorId(Integer id)throws Exception{
