@@ -21,7 +21,8 @@ public class ServletGuardarUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-      
+        PrintWriter out = response.getWriter();
+
         Usuario u=new Usuario();
         
        u.setNombre(request.getParameter("nombre"));
@@ -32,9 +33,12 @@ public class ServletGuardarUsuario extends HttpServlet {
        DAOUsuario dao=new DAOUsuario();
         try {
             dao.guardar(u);
+                          // out.println("Usuario guardado");
             RequestDispatcher despachador =request.getRequestDispatcher("/respuesta.jsp");
             despachador.forward(request, response);
         } catch (Exception ex) {
+             out.println(ex.getMessage());
+
            
         }
        

@@ -20,22 +20,25 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ServletBuscarATodosLosUsuarios extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        //vamos a crear un objeto que nos servira para mapear una array list de java a un objeto JSON
+       //Vamos a creaR UN OBJETO QUE NOS SERVIRA PARA MAPEAR UN aRRAYlIST DE
+        //JAVA a un objeto JSON
         
         ObjectMapper mapper=new ObjectMapper();
         DAOUsuario du=new DAOUsuario();
-        try{
+        try {
+            List<Usuario> usuarios=du.buscarTodos();
             
-        List<Usuario> usuarios= du.buscarTodos();
-        out.println(mapper.writeValueAsString(usuarios));
-        }catch (Exception ex){
+            out.println(mapper.writeValueAsString(usuarios)); 
             
+        } catch (Exception ex) {
+        
         }
-            
+        
         
     }
 }
+

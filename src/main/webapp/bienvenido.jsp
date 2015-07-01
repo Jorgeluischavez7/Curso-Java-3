@@ -14,7 +14,7 @@
     <body>
         <h1><center>Bienvenido a la administración de sitio</center></h1>
         <h2>Guardar Usuario</h2>
-    <from action="guardar.usuraio" method="post">
+    <from action="guardar-usuraio" method="post">
         <table>
             <tr>
                 <td>Nombre</td><td><input type="text" name="nombre"></td>

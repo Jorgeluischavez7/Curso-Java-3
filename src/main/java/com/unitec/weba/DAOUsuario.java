@@ -39,13 +39,15 @@ public class DAOUsuario {
     public void guardar(Usuario u)throws Exception{
         //aqui poner el codigo de tu guardado
         //Despues invocas el metodo cerrarTodo
-        
+        abrirSession();
         session.save(u);
         cerrarTodo();
     }
     //Creamos el update
     public void actualizar (Usuario u)throws Exception{
-        
+         abrirSession();
+        session.update(u);
+        cerrarTodo();
     }
     //Creamos el buscar todos 
     public List<Usuario> buscarTodos()throws Exception{
